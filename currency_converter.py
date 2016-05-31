@@ -9,11 +9,11 @@ class Money:
         if self.currency.upper() == 'USD':
             return self.amount * 1
         if self.currency.upper() == 'EUR':
-            return self.amount * 0.897336
+            return self.amount * 1.11
         if self.currency.upper() == 'JPY':
-            return self.amount * 110.695
+            return self.amount * .01
         if self.currency.upper() == 'BTC':
-            return self.amount * 0.0019
+            return self.amount * 521.44
         else:
             raise Exception("Please enter USD, EUR, JPY, or BTC")
 
@@ -41,6 +41,7 @@ class Money:
     def __mul__(self, other):
         return self.usd() * other.usd()
 
+
 value_one = Money(100, 'jpy')
 value_two = Money(500, 'eur')
 value_three = Money(30, 'btc')
@@ -61,4 +62,7 @@ print('Value One = Value Three: ', value_one == value_three)
 print('Value Three not equal to Value Four: ', value_three != value_four)
 print('Value Four * Value Two: ', value_four * value_two)
 print('\n')
-print("Hard Mode: ", value_one + value_two - value_three * value_four)
+
+#### Hard Mode ####
+print((Money.usd(Money(100.00, "USD")) + Money.usd(Money(56.32, "EUR"))) + (Money.usd(Money(1.2, "BTC")) + Money.usd(Money(8, "USD"))))
+
